@@ -42,19 +42,19 @@ UKF::UKF() {
   std_yawdd_ = 0.3;
 
   // Laser measurement noise standard deviation position1 in m
-  std_laspx_ = 0.15;
+  std_laspx_ = 0.12;
 
   // Laser measurement noise standard deviation position2 in m
-  std_laspy_ = 0.15;
+  std_laspy_ = 0.12;
 
   // Radar measurement noise standard deviation radius in m
   std_radr_ = 0.3;
 
   // Radar measurement noise standard deviation angle in rad
-  std_radphi_ = 0.0175;
+  std_radphi_ = 0.03;
 
   // Radar measurement noise standard deviation radius change in m/s
-  std_radrd_ = 0.1;
+  std_radrd_ = 0.3;
 
  
   //set state dimension
@@ -125,7 +125,7 @@ void UKF::Initialize(MeasurementPackage meas_package) {
     double x = rho * cos(phi);
     double y = rho * sin(phi);
     
-    x_ << x, y, , 6.5, 0.1, 0.2;
+    x_ << x, y, 6.5, 0.1, 0.2;
 
   }
   else if (meas_package.sensor_type_ == MeasurementPackage::LASER) {
