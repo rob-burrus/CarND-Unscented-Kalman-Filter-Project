@@ -19,4 +19,15 @@ Self-Driving Car Engineer Nanodegree Program
     - eg. `./UnscentedKF ../data/obj_pose-laser-radar-synthetic-input.txt`
 
 ## Results
+RMSE [px, py, vx, vy]
 
+UKF Radar + Lidar: RMSE [0.0676841, 0.0997594, 0.205464, 0.200668] 
+![Fusion Plot](visualizations/fusionplot.png)
+
+UKF Radar only: RMSE [0.234196, 0.265973, 0.329845, 0.285553]
+![Fusion Plot](visualizations/radarplot.png)
+
+UKF Lidar only: RMSE [0.157616, 0.146517, 0.298011, 0.21496]
+![Fusion Plot](visualizations/lidarplot.png)
+
+EKF Fusion: RMSE 
