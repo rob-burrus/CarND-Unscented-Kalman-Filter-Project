@@ -21,13 +21,17 @@ Self-Driving Car Engineer Nanodegree Program
 ## Results
 RMSE [px, py, vx, vy]
 
-UKF Radar + Lidar: RMSE [0.0676841, 0.0997594, 0.205464, 0.200668] 
+UKF Radar + Lidar: RMSE [0.0666965, 0.088302, 0.203527, 0.174157] 
 ![Fusion Plot](visualizations/fusionplot.png)
 
 UKF Radar only: RMSE [0.234196, 0.265973, 0.329845, 0.285553]
-![Fusion Plot](visualizations/radarplot.png)
+![Radar Plot](visualizations/radarplot.png)
 
 UKF Lidar only: RMSE [0.157616, 0.146517, 0.298011, 0.21496]
-![Fusion Plot](visualizations/lidarplot.png)
+![Lidar Plot](visualizations/lidarplot.png)
 
-EKF Fusion: RMSE 
+EKF Fusion: Used different dataset so RMSE not valid. But you can see the difference in accuracy caused by the constant velocity motion model
+![NIS Plot](visualizations/ekfplot.png)
+
+NIS
+![NIS Plot](visualizations/nisplot.png)
