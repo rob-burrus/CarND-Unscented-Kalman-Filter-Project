@@ -35,6 +35,10 @@ public:
   ///* augmented sigma points matrix
   MatrixXd Xsig_aug_;
   
+  MatrixXd R_laser_;
+  
+  MatrixXd R_radar_;
+  
   
   ///* time when the state is true, in us
   long long time_us_;
@@ -68,6 +72,8 @@ public:
 
   ///* Augmented state dimension
   int n_aug_;
+  
+  int n_sigma_;
 
   ///* Sigma point spreading parameter
   double lambda_;
@@ -117,9 +123,9 @@ public:
    */
   void Update(MeasurementPackage meas_package);
 
-  void PredictRadarMeasurement(Eigen::VectorXd& z_pred_, Eigen::MatrixXd& S_, Eigen::MatrixXd& Zsig_, int n_z);
+  void PredictRadarMeasurement(Eigen::VectorXd& z_pred_, Eigen::MatrixXd& S_, Eigen::MatrixXd& Zsig_);
   
-  void PredictLaserMeasurement(Eigen::VectorXd& z_pred_, Eigen::MatrixXd& S_, Eigen::MatrixXd& Zsig_, int n_z);
+  void PredictLaserMeasurement(Eigen::VectorXd& z_pred_, Eigen::MatrixXd& S_, Eigen::MatrixXd& Zsig_);
   
   void UpdateState(const Eigen::VectorXd &z, Eigen::VectorXd& z_pred_, Eigen::MatrixXd& S_, Eigen::MatrixXd& Zsig_, int n_z);
 };
