@@ -31,7 +31,11 @@ public:
 
   ///* predicted sigma points matrix
   MatrixXd Xsig_pred_;
-
+  
+  ///* augmented sigma points matrix
+  MatrixXd Xsig_aug_;
+  
+  
   ///* time when the state is true, in us
   long long time_us_;
 
@@ -74,6 +78,8 @@ public:
   ///* the current NIS for laser
   double NIS_laser_;
 
+  long previous_timestamp_;
+  
   /**
    * Constructor
    */
@@ -84,6 +90,8 @@ public:
    */
   virtual ~UKF();
 
+  void Initialize(MeasurementPackage meas_package);
+  
   /**
    * ProcessMeasurement
    * @param meas_package The latest measurement data of either radar or laser
@@ -97,17 +105,23 @@ public:
    */
   void Prediction(double delta_t);
 
+  void PredictMeanAndCovariance();
+  
+  void SigmaPointPrediction(float delta_t);
+  
+  void GenerateAugmentedSigmaPoints();
+  
   /**
-   * Updates the state and the state covariance matrix using a laser measurement
+   * Updates the state and the state covariance matrix
    * @param meas_package The measurement at k+1
    */
-  void UpdateLidar(MeasurementPackage meas_package);
+  void Update(MeasurementPackage meas_package);
 
-  /**
-   * Updates the state and the state covariance matrix using a radar measurement
-   * @param meas_package The measurement at k+1
-   */
-  void UpdateRadar(MeasurementPackage meas_package);
+  void PredictRadarMeasurement(Eigen::VectorXd& z_pred_, Eigen::MatrixXd& S_, Eigen::MatrixXd& Zsig_, int n_z);
+  
+  void PredictLaserMeasurement(Eigen::VectorXd& z_pred_, Eigen::MatrixXd& S_, Eigen::MatrixXd& Zsig_, int n_z);
+  
+  void UpdateState(const Eigen::VectorXd &z, Eigen::VectorXd& z_pred_, Eigen::MatrixXd& S_, Eigen::MatrixXd& Zsig_, int n_z);
 };
 
 #endif /* UKF_H */
