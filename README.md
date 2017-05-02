@@ -20,7 +20,7 @@
 ## Results
 RMSE [px, py, vx, vy]
 
-UKF Radar + Lidar: RMSE [0.0666965, 0.088302, 0.203527, 0.174157] 
+UKF Radar + Lidar: RMSE [0.0658812, 0.0819983, 0.33095, 0.217116] 
 ![Fusion Plot](visualizations/fusionplot.png)
 
 UKF Radar only: RMSE [0.234196, 0.265973, 0.329845, 0.285553]
@@ -33,5 +33,4 @@ EKF Fusion: Used different dataset so RMSE not valid. But you can see the differ
 ![NIS Plot](visualizations/ekfplot.png)
 
 NIS
-I plotted the NIS values for radar and lidar and discovered that I had too many NIS values over the 95% line for radar (thus underestimating the uncertainty in the system) and hardly any over the 95% for lidar. I increased the longitudinal acceleration, and yaw acceleration process noises from 0.2m/s to 0.3m/s. I also slightly decreased the laser measurement noise from 0.15 to 0.12. The result is a consistent filter as demonstrated in this plot:
 ![NIS Plot](visualizations/nisplot.png)
