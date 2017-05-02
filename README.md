@@ -23,10 +23,10 @@ RMSE [px, py, vx, vy]
 UKF Radar + Lidar: RMSE [0.0658812, 0.0819983, 0.33095, 0.217116] 
 ![Fusion Plot](visualizations/fusionplot.png)
 
-UKF Radar only: RMSE [0.234196, 0.265973, 0.329845, 0.285553]
+UKF Radar only: RMSE [0.209408, 0.259503, 0.455479, 0.283628]
 ![Radar Plot](visualizations/radarplot.png)
 
-UKF Lidar only: RMSE [0.157616, 0.146517, 0.298011, 0.21496]
+UKF Lidar only: RMSE [0.169299, 0.1477, 0.596994, 0.259302]
 ![Lidar Plot](visualizations/lidarplot.png)
 
 EKF Fusion: Used different dataset so RMSE not valid. But you can see the difference in accuracy caused by the constant velocity motion model
